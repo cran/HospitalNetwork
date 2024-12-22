@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -17,14 +17,16 @@ data = create_fake_subjectDB(n_subjects = 3, n_facilities = 3)
 data
 
 ## ----check_example, error = TRUE----------------------------------------------
+try({
 # Example
 library(HospitalNetwork)
 base = create_fake_subjectDB(n_subjects = 100, n_facilities = 10, with_errors = TRUE)
 checkBase(base)
+})
 
 ## ----setup, eval = FALSE------------------------------------------------------
-#  library(HospitalNetwork)
-#  
+# library(HospitalNetwork)
+# 
 
 ## ----setup2, eval = TRUE------------------------------------------------------
 mydbmed = create_fake_subjectDB(n_subjects = 100, n_facilities = 10)
@@ -56,5 +58,6 @@ plot(hn, type = "degree")
 plot(hn , type = "clustered_matrix")
 
 ## ----setup10, eval = TRUE-----------------------------------------------------
-plot(hn , type = "circular_network")
+#this plot may not work on some systems
+#plot(hn , type = "circular_network")
 
